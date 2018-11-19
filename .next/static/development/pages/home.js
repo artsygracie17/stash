@@ -67,7 +67,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-/* Third Party */
+/* First Party */
 
 
 var InputWrapper = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject());

@@ -1,10 +1,16 @@
+/* First party */
 import { Component } from 'react'
+import { Grid, Row, Col } from 'react-flexbox-grid'
 
 /* Third party */
 import Searchbar from '../components/Searchbar'
 import styled from 'styled-components'
 
-const Theme = styled.div`
+const Container = styled.div`
+
+`
+
+const Theme = styled(Grid)`
     font-family: 'NeueHaasUnicaPro-Regular';
 `
 
@@ -23,11 +29,17 @@ export default class Home extends Component {
     }
     
     render () {
-        return ( 
-            <Theme>
-                <div> testing index </div> 
-                <Searchbar />
-            </Theme>
+        return (
+            <Container>
+                {/* <Theme> */}
+                    <h1> My Giphy </h1>
+                    <Row center='xs'>
+                        <Col xs={12}>
+                            <Searchbar />
+                        </Col>
+                    </Row>
+                {/* </Theme> */}
+            </Container>
         )
     }
 }

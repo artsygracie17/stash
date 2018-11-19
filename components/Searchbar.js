@@ -1,4 +1,4 @@
-/* Third Party */
+/* First Party */
 import styled from 'styled-components'
 import React from 'react'
 
@@ -16,7 +16,6 @@ const SearchInput = styled.input.attrs({ type: 'text' })`
   background-color: white;
   border: 1px solid white;
   border-radius: 0.2rem 0 0 0.2rem;
-  box-sizing: border-box;
   color: black;
   display: inline-flex;
   flex-grow: 1;

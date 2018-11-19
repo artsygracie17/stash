@@ -140,7 +140,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  appearance: none;\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem 0 0 0.2rem;\n  box-sizing: border-box;\n  color: black;\n  display: inline-flex;\n  flex-grow: 1;\n  font-family: inherit;\n  font-size: 1.25rem;\n  font-weight: 400;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  appearance: none;\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem 0 0 0.2rem;\n  color: black;\n  display: inline-flex;\n  flex-grow: 1;\n  font-family: inherit;\n  font-size: 1.25rem;\n  font-weight: 400;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -161,7 +161,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-/* Third Party */
+/* First Party */
 
 
 var InputWrapper = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div(_templateObject());
@@ -221,13 +221,13 @@ function (_React$Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84
+          lineNumber: 83
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(InputWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 85
+          lineNumber: 84
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SearchInput, {
@@ -237,20 +237,20 @@ function (_React$Component) {
         onChange: this.handleChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 86
+          lineNumber: 85
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         onClick: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 91
+          lineNumber: 90
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(SearchIcon, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 93
+          lineNumber: 92
         },
         __self: this
       }, "search"))));
@@ -280,9 +280,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Home; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Searchbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Searchbar */ "./components/Searchbar.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_flexbox_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-flexbox-grid */ "react-flexbox-grid");
+/* harmony import */ var react_flexbox_grid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_flexbox_grid__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Searchbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Searchbar */ "./components/Searchbar.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
 var _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/pages/home.js";
 
 
@@ -304,8 +306,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _templateObject() {
+function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n    font-family: 'NeueHaasUnicaPro-Regular';\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -316,12 +328,15 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
+/* First party */
+
 
 /* Third party */
 
 
 
-var Theme = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div(_templateObject());
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div(_templateObject());
+var Theme = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(react_flexbox_grid__WEBPACK_IMPORTED_MODULE_1__["Grid"])(_templateObject2());
 
 var Home =
 /*#__PURE__*/
@@ -349,25 +364,39 @@ function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 33
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 35
         },
         __self: this
-      }, " testing index "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, " My Giphy "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_flexbox_grid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 36
         },
         __self: this
-      }));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_flexbox_grid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+        xs: 12,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 38
+        },
+        __self: this
+      }))));
     }
   }]);
 
@@ -398,6 +427,17 @@ module.exports = __webpack_require__(/*! ./pages/home.js */"./pages/home.js");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-flexbox-grid":
+/*!*************************************!*\
+  !*** external "react-flexbox-grid" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-flexbox-grid");
 
 /***/ }),
 
