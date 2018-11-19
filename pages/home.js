@@ -1,6 +1,12 @@
 import { Component } from 'react'
 
+/* Third party */
 import Searchbar from '../components/Searchbar'
+import styled from 'styled-components'
+
+const Theme = styled.div`
+    font-family: 'NeueHaasUnicaPro-Regular';
+`
 
 export default class Home extends Component {
 
@@ -18,10 +24,10 @@ export default class Home extends Component {
     
     render () {
         return ( 
-            <div>
+            <Theme>
                 <div> testing index </div> 
                 <Searchbar />
-            </div>
+            </Theme>
         )
     }
 }
