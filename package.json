@@ -2,12 +2,14 @@
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",
+    "eslint": "^5.9.0",
     "eslint-cli": "^1.1.1",
     "express": "^4.16.4",
     "next": "^7.0.2",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-flexbox-grid": "^2.1.2",
+    "react-styled-flexboxgrid": "^2.6.0",
     "styled-components": "^4.1.1",
     "webpack-bundle-analyzer": "^3.0.3"
   },

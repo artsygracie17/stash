@@ -1,14 +1,34 @@
-/* First Party */
+/* Third Party */
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import React from 'react'
+
+/* First Party */
 
 const InputWrapper = styled.div`
   align-items: center;
   border-radius: 0.2rem;
-  box-shadow: 0 0 5px light gray;
+  box-shadow: 0 0 5px lightgray;
   display: flex;
-  font-family: 'NeueHaasUnicaPro-Regular';
   width: 100%;
+`
+
+const SearchButton = styled.span`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  height: 3rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0.2rem;
+  text-align: center;
+  width: 20%;
+  outline: none;
+  margin-bottom: 0;
+  &:hover {
+    background-color: transparent;
+  }
 `
 
 const SearchInput = styled.input.attrs({ type: 'text' })`
@@ -16,6 +36,7 @@ const SearchInput = styled.input.attrs({ type: 'text' })`
   background-color: white;
   border: 1px solid white;
   border-radius: 0.2rem 0 0 0.2rem;
+  box-sizing: border-box;
   color: black;
   display: inline-flex;
   flex-grow: 1;
@@ -37,10 +58,10 @@ const SearchInput = styled.input.attrs({ type: 'text' })`
   }
 `
 
-const SearchIcon = styled.span`
-  color: gray ;
+const SearchIcon = styled.i`
+  color: gray;
   display: inline-flex;
-  font-size: 1.4rem;
+  font-size: 4rem;
   position: relative;
   right: 1.5rem;
   top: 0.1rem;
@@ -81,16 +102,17 @@ export default class Searchbar extends React.Component {
   render () {
     return (
       <form key={'unique'} onSubmit={this.handleSubmit}>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"></link>
         <InputWrapper>
           <SearchInput autoFocus
             value={this.state.searchTerm}
-            placeholder='Search for a gif'
+            placeholder='Search for giphy'
             onChange={this.handleChange}
           />
-          <button
-            onClick={this.handleSubmit}>
-            <SearchIcon>search</SearchIcon>
-          </button>
+          <SearchButton onClick={this.handleSubmit}>
+            <SearchIcon class='material-icons'>search</SearchIcon>
+          </SearchButton>
         </InputWrapper>
       </form>
     )
@@ -98,6 +120,13 @@ export default class Searchbar extends React.Component {
 }
 
 Searchbar.defaultProps = {
+  placeholder: '',
   value: '',
   onSubmit: () => {}
+}
+
+Searchbar.propTypes = {
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  onSubmit: PropTypes.func
 }
