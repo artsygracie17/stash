@@ -49,7 +49,6 @@ const SearchInput = styled.input.attrs({ type: 'text' })`
   padding-left: 1rem;
   padding-right: 0.5rem;
   padding-top: 0.5rem;
-  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
   width: 100%;
   &:focus {
     background-color: white;
@@ -84,35 +83,29 @@ export default class Searchbar extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      searchTerm: ''
+      searchTerm: props.searchTerm
     }
   }
 
   handleChange = (event) => {
-    this.setState({
-      searchTerm: event.target.value
-    })
+    this.props.onChange(event)
   }
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log('in searchbar submit: ', this.state.searchTerm)
     this.props.onSubmit(this.state.searchTerm)
   }
 
   render () {
     return (
       <form key={'unique'} onSubmit={this.handleSubmit}>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet"></link>
         <InputWrapper>
           <SearchInput autoFocus
             value={this.state.searchTerm}
             placeholder='Search for giphy'
             onChange={this.handleChange}
           />
-          <SearchButton onClick={this.handleSubmit}>
-            <SearchIcon class='material-icons'>search</SearchIcon>
-          </SearchButton>
         </InputWrapper>
       </form>
     )
@@ -120,13 +113,13 @@ export default class Searchbar extends React.Component {
 }
 
 Searchbar.defaultProps = {
-  placeholder: '',
-  value: '',
+  searchTerm: '',
+  onChange: () => {},
   onSubmit: () => {}
 }
 
 Searchbar.propTypes = {
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
+  searchTerm: PropTypes.string,
+  onChange: PropTypes.func,
   onSubmit: PropTypes.func
 }

@@ -31,8 +31,14 @@ export default class Home extends Component {
         }
     }
 
-    handleSubmit = () => {
-        console.log('in handlesubmit: ', this.state.searchTerm)
+    handleSearchTermChange = (event) => {
+        this.setState({
+          searchTerm: event.target.value
+        })
+      }    
+
+    handleSearchbarSubmit = (searchTerm) => {
+        console.log('in handlesubmit: ', searchTerm)
         let urlRequest = `http://api.giphy.com/v1/gifs/search?q=${this.state.searchTerm}&api_key=${apiKey}&limit=5`
         fetch(urlRequest)
             .then(res => res.json())
@@ -54,11 +60,16 @@ export default class Home extends Component {
         const { searchTerm } = this.state
         return (
             <Container>
-                <Title> Product Search </Title>
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"></link>
+                <Title>  </Title>
                 <Theme>
                     <Row center='xs'>
                         <Col xs={6}>
-                            <Searchbar value={searchTerm} onSubmit={this.handleSubmit} />
+                            <Searchbar 
+                                searchTerm={searchTerm} 
+                                onChange={this.handleSearchTermChange}
+                                onSubmit={this.handleSearchbarSubmit} />
                         </Col>
                     </Row>
                 </Theme>

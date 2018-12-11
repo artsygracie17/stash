@@ -48,7 +48,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  appearance: none;\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem 0 0 0.2rem;\n  box-sizing: border-box;\n  color: black;\n  display: inline-flex;\n  flex-grow: 1;\n  font-family: inherit;\n  font-size: 1.25rem;\n  font-weight: 400;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  appearance: none;\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem 0 0 0.2rem;\n  box-sizing: border-box;\n  color: black;\n  display: inline-flex;\n  flex-grow: 1;\n  font-family: inherit;\n  font-size: 1.25rem;\n  font-weight: 400;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -118,19 +118,18 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Searchbar).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleChange", function (event) {
-      _this.setState({
-        searchTerm: event.target.value
-      });
+      _this.props.onChange(event);
     });
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function (event) {
       event.preventDefault();
+      console.log('in searchbar submit: ', _this.state.searchTerm);
 
       _this.props.onSubmit(_this.state.searchTerm);
     });
 
     _this.state = {
-      searchTerm: ''
+      searchTerm: props.searchTerm
     };
     return _this;
   }
@@ -143,21 +142,13 @@ function (_React$Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 102
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
-        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-        rel: "stylesheet",
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(InputWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 105
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(InputWrapper, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 107
+          lineNumber: 103
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchInput, {
@@ -167,24 +158,10 @@ function (_React$Component) {
         onChange: this.handleChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 108
+          lineNumber: 104
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchButton, {
-        onClick: this.handleSubmit,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 113
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchIcon, {
-        class: "material-icons",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 114
-        },
-        __self: this
-      }, "search"))));
+      })));
     }
   }]);
 
@@ -193,13 +170,13 @@ function (_React$Component) {
 
 
 Searchbar.defaultProps = {
-  placeholder: '',
-  value: '',
+  searchTerm: '',
+  onChange: function onChange() {},
   onSubmit: function onSubmit() {}
 };
 Searchbar.propTypes = {
-  placeholder: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
-  value: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
+  searchTerm: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string,
+  onChange: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
   onSubmit: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func
 };
 
@@ -4873,8 +4850,14 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Home).call(this, props));
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function () {
-      console.log('in handlesubmit: ', _this.state.searchTerm);
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchTermChange", function (event) {
+      _this.setState({
+        searchTerm: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchbarSubmit", function (searchTerm) {
+      console.log('in handlesubmit: ', searchTerm);
       var urlRequest = "http://api.giphy.com/v1/gifs/search?q=".concat(_this.state.searchTerm, "&api_key=").concat(apiKey, "&limit=5");
       fetch(urlRequest).then(function (res) {
         return res.json();
@@ -4909,41 +4892,50 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 62
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
+        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+        rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 63
         },
         __self: this
-      }, " Product Search "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 65
+        },
+        __self: this
+      }, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 66
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 67
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         xs: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 68
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        value: searchTerm,
-        onSubmit: this.handleSubmit,
+        searchTerm: searchTerm,
+        onChange: this.handleSearchTermChange,
+        onSubmit: this.handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 69
         },
         __self: this
       })))));
