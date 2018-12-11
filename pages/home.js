@@ -1,10 +1,11 @@
 /* First party */
 import { Component } from 'react'
 import { Grid, Row, Col } from 'react-styled-flexboxgrid'
+import styled from 'styled-components'
 
 /* Third party */
 import Searchbar from '../components/Searchbar'
-import styled from 'styled-components'
+import ResultCard from '../components/ResultCard'
 
 const Container = styled.div`
     margin: 0 auto;
@@ -39,30 +40,31 @@ export default class Home extends Component {
 
     handleSearchbarSubmit = (searchTerm) => {
         console.log('in handlesubmit: ', searchTerm)
-        let urlRequest = `http://api.giphy.com/v1/gifs/search?q=${this.state.searchTerm}&api_key=${apiKey}&limit=5`
+        let urlRequest = `http://api.giphy.com/v1/gifs/search?q=${this.state.searchTerm}&api_key=${apiKey}&limit=50`
         fetch(urlRequest)
             .then(res => res.json())
-            .then(result =>
-                console.log('in handleSubmit: ', result)
-            )
+            .then(results => {
+                const resultsArray = results.data
+                this.setState({
+                    results: resultsArray
+                })
+            })
     }
 
     componentDidMount() {
-        let urlRequest = `http://api.giphy.com/v1/gifs/search?q=pandas&api_key=${apiKey}&limit=5`
-        fetch(urlRequest)
-            .then(res => res.json())
-            .then(result =>
-                console.log(result)
-            )
+        // let urlRequest = `http://api.giphy.com/v1/gifs/search?q=pandas&api_key=${apiKey}&limit=5`
+        // fetch(urlRequest)
+        //     .then(res => res.json())
+        //     .then(result =>
+        //         console.log(result)
+        //     )
     }
     
     render () {
-        const { searchTerm } = this.state
+        const { searchTerm, results } = this.state
         return (
             <Container>
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet"></link>
-                <Title>  </Title>
+                <Title> my giphy search </Title>
                 <Theme>
                     <Row center='xs'>
                         <Col xs={6}>
@@ -71,6 +73,18 @@ export default class Home extends Component {
                                 onChange={this.handleSearchTermChange}
                                 onSubmit={this.handleSearchbarSubmit} />
                         </Col>
+                    </Row>
+                    <Row>
+                        { console.log('resultssss: ', results)}
+                        { results.map(result => {
+                            return (
+                                <Col key={result.id}>
+                                    <ResultCard
+                                        title={result.title}
+                                    />
+                                </Col>
+                            )
+                        })}
                     </Row>
                 </Theme>
             </Container>

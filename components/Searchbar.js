@@ -10,25 +10,8 @@ const InputWrapper = styled.div`
   border-radius: 0.2rem;
   box-shadow: 0 0 5px lightgray;
   display: flex;
+  margin-bottom: 3rem;
   width: 100%;
-`
-
-const SearchButton = styled.span`
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 3rem;
-  height: 3rem;
-  line-height: 1;
-  margin-bottom: 1rem;
-  padding: 0.5rem 0.2rem;
-  text-align: center;
-  width: 20%;
-  outline: none;
-  margin-bottom: 0;
-  &:hover {
-    background-color: transparent;
-  }
 `
 
 const SearchInput = styled.input.attrs({ type: 'text' })`
@@ -57,19 +40,6 @@ const SearchInput = styled.input.attrs({ type: 'text' })`
   }
 `
 
-const SearchIcon = styled.i`
-  color: gray;
-  display: inline-flex;
-  font-size: 4rem;
-  position: relative;
-  right: 1.5rem;
-  top: 0.1rem;
-  width: 0;
-  &:hover {
-    color: gray;
-  }
-`
-
 export default class Searchbar extends React.Component {
   static getDerivedStateFromProps (nextProps, prevState) {
     if (prevState.searchTerm !== nextProps.searchTerm) {
@@ -93,7 +63,6 @@ export default class Searchbar extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('in searchbar submit: ', this.state.searchTerm)
     this.props.onSubmit(this.state.searchTerm)
   }
 

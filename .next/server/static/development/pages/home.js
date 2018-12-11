@@ -93,6 +93,132 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/ResultCard.js":
+/*!**********************************!*\
+  !*** ./components/ResultCard.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ResultCard; });
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! prop-types */ "prop-types");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/components/ResultCard.js";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    color: gray;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    border: 1px solid lightgray;\n    border-radius: 0.2rem;\n    width: 20rem;\n    height: 20rem;\n    padding: 0rem 1rem;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\nwidth: 20rem;\nheight: 20rem;\n    margin: 1rem;\n    padding: 1rem;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+/* Third Party */
+
+
+
+var ResultCardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
+var ResultCardBody = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject2());
+var ResultTitle = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.h4(_templateObject3());
+
+var ResultCard =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(ResultCard, _React$Component);
+
+  function ResultCard() {
+    _classCallCheck(this, ResultCard);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ResultCard).apply(this, arguments));
+  }
+
+  _createClass(ResultCard, [{
+    key: "render",
+    value: function render() {
+      var title = this.props.title;
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardContainer, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardBody, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultTitle, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31
+        },
+        __self: this
+      }, title)));
+    }
+  }]);
+
+  return ResultCard;
+}(react__WEBPACK_IMPORTED_MODULE_2___default.a.Component);
+
+
+ResultCard.defaultProps = {
+  title: ''
+};
+ResultCard.propTypes = {
+  title: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string
+};
+
+/***/ }),
+
 /***/ "./components/Searchbar.js":
 /*!*********************************!*\
   !*** ./components/Searchbar.js ***!
@@ -131,28 +257,8 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  color: gray;\n  display: inline-flex;\n  font-size: 4rem;\n  position: relative;\n  right: 1.5rem;\n  top: 0.1rem;\n  width: 0;\n  &:hover {\n    color: gray;\n  }\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  appearance: none;\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem 0 0 0.2rem;\n  box-sizing: border-box;\n  color: black;\n  display: inline-flex;\n  flex-grow: 1;\n  font-family: inherit;\n  font-size: 1.25rem;\n  font-weight: 400;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  background-color: transparent;\n  border: none;\n  cursor: pointer;\n  font-size: 3rem;\n  height: 3rem;\n  line-height: 1;\n  margin-bottom: 1rem;\n  padding: 0.5rem 0.2rem;\n  text-align: center;\n  width: 20%;\n  outline: none;\n  margin-bottom: 0;\n  &:hover {\n    background-color: transparent;\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  appearance: none;\n  background-color: white;\n  border: 1px solid white;\n  border-radius: 0.2rem 0 0 0.2rem;\n  box-sizing: border-box;\n  color: black;\n  display: inline-flex;\n  flex-grow: 1;\n  font-family: inherit;\n  font-size: 1.25rem;\n  font-weight: 400;\n  height: 3rem;\n  line-height: 2rem;\n  padding-bottom: 0.5rem;\n  padding-left: 1rem;\n  padding-right: 0.5rem;\n  padding-top: 0.5rem;\n  width: 100%;\n  &:focus {\n    background-color: white;\n    outline: 0;\n    transition: box-shadow 0.5s, border-color 0.25s ease-in-out;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -162,7 +268,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  align-items: center;\n  border-radius: 0.2rem;\n  box-shadow: 0 0 5px lightgray;\n  display: flex;\n  width: 100%;\n"]);
+  var data = _taggedTemplateLiteral(["\n  align-items: center;\n  border-radius: 0.2rem;\n  box-shadow: 0 0 5px lightgray;\n  display: flex;\n  margin-bottom: 3rem;\n  width: 100%;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -180,11 +286,9 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 /* First Party */
 
 var InputWrapper = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
-var SearchButton = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.span(_templateObject2());
 var SearchInput = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.input.attrs({
   type: 'text'
-})(_templateObject3());
-var SearchIcon = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.i(_templateObject4());
+})(_templateObject2());
 
 var Searchbar =
 /*#__PURE__*/
@@ -217,7 +321,6 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSubmit", function (event) {
       event.preventDefault();
-      console.log('in searchbar submit: ', _this.state.searchTerm);
 
       _this.props.onSubmit(_this.state.searchTerm);
     });
@@ -236,13 +339,13 @@ function (_React$Component) {
         onSubmit: this.handleSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 71
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(InputWrapper, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 72
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(SearchInput, {
@@ -252,7 +355,7 @@ function (_React$Component) {
         onChange: this.handleChange,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 104
+          lineNumber: 73
         },
         __self: this
       })));
@@ -290,9 +393,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-styled-flexboxgrid */ "react-styled-flexboxgrid");
 /* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Searchbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Searchbar */ "./components/Searchbar.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_Searchbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Searchbar */ "./components/Searchbar.js");
+/* harmony import */ var _components_ResultCard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ResultCard */ "./components/ResultCard.js");
 var _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/pages/home.js";
 
 
@@ -351,13 +455,14 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 /* First party */
 
 
+
 /* Third party */
 
 
 
-var Container = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div(_templateObject());
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.h1(_templateObject2());
-var Theme = styled_components__WEBPACK_IMPORTED_MODULE_3___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"])(_templateObject3());
+var Container = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div(_templateObject());
+var Title = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.h1(_templateObject2());
+var Theme = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"])(_templateObject3());
 var apiKey = 'G3kX7Y9C74tjpHZadKuIGqjwLrCmfZnU';
 
 var Home =
@@ -380,11 +485,15 @@ function (_Component) {
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleSearchbarSubmit", function (searchTerm) {
       console.log('in handlesubmit: ', searchTerm);
-      var urlRequest = "http://api.giphy.com/v1/gifs/search?q=".concat(_this.state.searchTerm, "&api_key=").concat(apiKey, "&limit=5");
+      var urlRequest = "http://api.giphy.com/v1/gifs/search?q=".concat(_this.state.searchTerm, "&api_key=").concat(apiKey, "&limit=50");
       fetch(urlRequest).then(function (res) {
         return res.json();
-      }).then(function (result) {
-        return console.log('in handleSubmit: ', result);
+      }).then(function (results) {
+        var resultsArray = results.data;
+
+        _this.setState({
+          results: resultsArray
+        });
       });
     });
 
@@ -399,68 +508,83 @@ function (_Component) {
 
   _createClass(Home, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      var urlRequest = "http://api.giphy.com/v1/gifs/search?q=pandas&api_key=".concat(apiKey, "&limit=5");
-      fetch(urlRequest).then(function (res) {
-        return res.json();
-      }).then(function (result) {
-        return console.log(result);
-      });
+    value: function componentDidMount() {// let urlRequest = `http://api.giphy.com/v1/gifs/search?q=pandas&api_key=${apiKey}&limit=5`
+      // fetch(urlRequest)
+      //     .then(res => res.json())
+      //     .then(result =>
+      //         console.log(result)
+      //     )
     }
   }, {
     key: "render",
     value: function render() {
-      var searchTerm = this.state.searchTerm;
+      var _this$state = this.state,
+          searchTerm = _this$state.searchTerm,
+          results = _this$state.results;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link", {
-        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
-        rel: "stylesheet",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 63
-        },
-        __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 65
-        },
-        __self: this
-      }, "  "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 66
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 67
+        },
+        __self: this
+      }, " my giphy search "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 68
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 69
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         xs: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 70
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
         searchTerm: searchTerm,
         onChange: this.handleSearchTermChange,
         onSubmit: this.handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 71
         },
         __self: this
-      })))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 77
+        },
+        __self: this
+      }, console.log('resultssss: ', results), results.map(function (result) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          key: result.id,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 81
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ResultCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          title: result.title,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 82
+          },
+          __self: this
+        }));
+      }))));
     }
   }]);
 
