@@ -16,8 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-styled-flexboxgrid */ "./node_modules/react-styled-flexboxgrid/dist/styled-flexboxgrid.es.js");
-var _this = undefined,
-    _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/components/ResultCard.js";
+var _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/components/ResultCard.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -29,16 +28,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n    opacity: 1;\n    text-align: right;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: magenta;\n    opacity: 1;\n    text-align: right;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -89,22 +90,33 @@ var ResultCardBody = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].d
 var ResultGif = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].img(_templateObject3());
 var Favorite = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4());
 
-var handleFavoritesUpdate = function handleFavoritesUpdate() {
-  _this.updateFavorites(_this.props.gif);
-
-  console.log('clicked');
-  console.log(_this.props.gif);
-};
-
 var ResultCard =
 /*#__PURE__*/
 function (_React$Component) {
   _inherits(ResultCard, _React$Component);
 
-  function ResultCard() {
+  function ResultCard(props) {
+    var _this;
+
     _classCallCheck(this, ResultCard);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ResultCard).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ResultCard).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleFavoritesUpdate", function () {
+      _this.props.updateFavorites(_this.props.gif);
+
+      console.log('clicked');
+      console.log(_this.props.gif);
+
+      _this.setState({
+        favorited: !_this.state.favorited
+      });
+    });
+
+    _this.state = {
+      favorited: false
+    };
+    return _this;
   }
 
   _createClass(ResultCard, [{
@@ -112,11 +124,12 @@ function (_React$Component) {
     value: function render() {
       var gif = this.props.gif;
       var handleFavoritesUpdate = this.handleFavoritesUpdate;
+      var favorited = this.state.favorited;
       var gifUrl = gif.images.fixed_width_downsampled.url;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 52
+          lineNumber: 63
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -124,34 +137,41 @@ function (_React$Component) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 53
+          lineNumber: 64
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 66
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Favorite, {
         onClick: handleFavoritesUpdate,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 67
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
+      }, favorited ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 69
+        },
+        __self: this
+      }, "favorite") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
+        className: "material-icons",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 70
         },
         __self: this
       }, "favorite_border")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultGif, {
         src: gifUrl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 73
         },
         __self: this
       })));
@@ -5176,13 +5196,31 @@ function (_Component) {
           lineNumber: 123
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        center: "xs",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 124
         },
         __self: this
-      }, " favs page ")));
+      }, console.log('favorites: ', favorites), favorites.map(function (fav) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
+          key: fav.id,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 128
+          },
+          __self: this
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ResultCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          gif: fav,
+          updateFavorites: handleFavoritesUpdate,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 129
+          },
+          __self: this
+        }));
+      }))));
     }
   }]);
 

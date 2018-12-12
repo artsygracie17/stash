@@ -28,6 +28,7 @@ const ResultGif = styled.img`
     }
 `
 const Favorite = styled.div`
+    color: magenta;
     opacity: 1;
     text-align: right;
 
@@ -36,17 +37,27 @@ const Favorite = styled.div`
     }
 `
 
-const handleFavoritesUpdate = () => {
-    this.updateFavorites(this.props.gif)
-    console.log('clicked')
-    console.log(this.props.gif)
-}
-
 export default class ResultCard extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            favorited: false
+        }
+    }
+
+    handleFavoritesUpdate = () => {
+        this.props.updateFavorites(this.props.gif)
+        console.log('clicked')
+        console.log(this.props.gif)
+        this.setState({
+            favorited: !this.state.favorited
+        })
+    }
 
     render () {
         const { gif } = this.props
         const { handleFavoritesUpdate } = this
+        const { favorited } = this.state
         const gifUrl = gif.images.fixed_width_downsampled.url
         return (
             <ResultCardContainer>
@@ -54,7 +65,10 @@ export default class ResultCard extends React.Component {
                 rel="stylesheet"/>
                 <ResultCardBody> 
                     <Favorite onClick={handleFavoritesUpdate}>
-                        <i className='material-icons'>favorite_border</i>
+                        { favorited 
+                            ? <i className='material-icons'>favorite</i>
+                            : <i className='material-icons'>favorite_border</i>
+                        }
                     </Favorite>
                     <ResultGif src={gifUrl}></ResultGif>
                 </ResultCardBody>

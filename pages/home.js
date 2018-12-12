@@ -121,8 +121,7 @@ export default class Home extends Component {
                     </Row>
                 </Theme>
                 : <Theme>
-                    <p> favs page </p>
-                    {/* <Row center='xs'>
+                    <Row center='xs'>
                         { console.log('favorites: ', favorites)}
                         { favorites.map(fav => {
                             return (
@@ -134,7 +133,7 @@ export default class Home extends Component {
                                 </Col>
                             )
                         })}
-                    </Row> */}
+                    </Row>
                 </Theme>
                 }
             </Container>
