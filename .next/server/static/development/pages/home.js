@@ -214,12 +214,11 @@ function (_React$Component) {
       var _this$props = this.props,
           gif = _this$props.gif,
           isFavorite = _this$props.isFavorite;
-      var favorited = this.state.favorited;
       var gifUrl = gif.images.fixed_width_downsampled.url;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 55
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -227,44 +226,52 @@ function (_React$Component) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 56
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 58
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Favorite, {
         onClick: handleFavoritesUpdate,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 59
         },
         __self: this
       }, isFavorite ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 62
+          lineNumber: 61
         },
         __self: this
       }, "favorite") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 62
         },
         __self: this
-      }, "favorite_border")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultGif, {
+      }, "favorite_border")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+        href: gif.url,
+        target: "_blank",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 65
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultGif, {
         src: gifUrl,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 66
         },
         __self: this
-      })));
+      }))));
     }
   }]);
 

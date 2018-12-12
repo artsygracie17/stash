@@ -50,7 +50,6 @@ export default class ResultCard extends React.Component {
     render () {
         const { handleFavoritesUpdate } = this
         const { gif, isFavorite } = this.props
-        const { favorited } = this.state
         const gifUrl = gif.images.fixed_width_downsampled.url
         return (
             <ResultCardContainer>
@@ -63,7 +62,9 @@ export default class ResultCard extends React.Component {
                             : <i className='material-icons'>favorite_border</i>
                         }
                     </Favorite>
-                    <ResultGif src={gifUrl}></ResultGif>
+                    <a href={gif.url} target='_blank'>
+                        <ResultGif src={gifUrl}></ResultGif>
+                    </a>
                 </ResultCardBody>
             </ResultCardContainer>
         )
