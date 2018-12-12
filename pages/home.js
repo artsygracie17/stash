@@ -75,11 +75,13 @@ export default class Home extends Component {
         })
     }
 
-    handleFavoritesUpdate = (gif) => {
+    handleFavoritesUpdate = (gif, isFavorite) => {
+        const newFavs = isFavorite 
+        ? this.state.favorites.filter(f => f!==gif)
+        : [...this.state.favorites, gif]
         this.setState({
-            favorites: [...this.state.favorites, gif]
+            favorites: newFavs
         })
-        console.log('favs: ', this.state.favorites)
     }
     
     render () {
@@ -122,7 +124,6 @@ export default class Home extends Component {
                 </Theme>
                 : <Theme>
                     <Row center='xs'>
-                        { console.log('favorites: ', favorites)}
                         { favorites.map(fav => {
                             return (
                                 <Col key={fav.id}>

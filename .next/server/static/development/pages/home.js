@@ -198,13 +198,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ResultCard).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleFavoritesUpdate", function () {
-      _this.setState({
-        favorited: !_this.state.favorited
-      });
-
-      console.log('favoirted: ', _this.state.favorited);
-
-      _this.props.updateFavorites(_this.props.gif);
+      _this.props.updateFavorites(_this.props.gif, _this.props.isFavorite);
     });
 
     _this.state = {
@@ -225,7 +219,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 60
+          lineNumber: 56
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -233,41 +227,41 @@ function (_React$Component) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 57
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 59
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Favorite, {
         onClick: handleFavoritesUpdate,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 60
         },
         __self: this
       }, isFavorite ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 62
         },
         __self: this
       }, "favorite") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 63
         },
         __self: this
       }, "favorite_border")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultGif, {
         src: gifUrl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 66
         },
         __self: this
       })));
@@ -607,12 +601,14 @@ function (_Component) {
       });
     });
 
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleFavoritesUpdate", function (gif) {
-      _this.setState({
-        favorites: _toConsumableArray(_this.state.favorites).concat([gif])
-      });
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleFavoritesUpdate", function (gif, isFavorite) {
+      var newFavs = isFavorite ? _this.state.favorites.filter(function (f) {
+        return f !== gif;
+      }) : _toConsumableArray(_this.state.favorites).concat([gif]);
 
-      console.log('favs: ', _this.state.favorites);
+      _this.setState({
+        favorites: newFavs
+      });
     });
 
     _this.state = {
@@ -639,13 +635,13 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 94
+          lineNumber: 96
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95
+          lineNumber: 97
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Search, {
@@ -653,7 +649,7 @@ function (_Component) {
         onClick: handlePageToggle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96
+          lineNumber: 98
         },
         __self: this
       }, " search "), " .", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Favorites, {
@@ -661,27 +657,27 @@ function (_Component) {
         onClick: handlePageToggle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97
+          lineNumber: 99
         },
         __self: this
       }, " favorites ")), home ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 100
+          lineNumber: 102
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 101
+          lineNumber: 103
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         xs: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 102
+          lineNumber: 104
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -690,14 +686,14 @@ function (_Component) {
         onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 103
+          lineNumber: 105
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 109
+          lineNumber: 111
         },
         __self: this
       }, results.map(function (result) {
@@ -705,7 +701,7 @@ function (_Component) {
           key: result.id,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 112
+            lineNumber: 114
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ResultCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -714,29 +710,29 @@ function (_Component) {
           isFavorite: favorites.includes(result),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 115
           },
           __self: this
         }));
       }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 123
+          lineNumber: 125
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 124
+          lineNumber: 126
         },
         __self: this
-      }, console.log('favorites: ', favorites), favorites.map(function (fav) {
+      }, favorites.map(function (fav) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
           key: fav.id,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 128
+            lineNumber: 129
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ResultCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -745,7 +741,7 @@ function (_Component) {
           isFavorite: true,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 129
+            lineNumber: 130
           },
           __self: this
         }));

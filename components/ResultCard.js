@@ -44,11 +44,7 @@ export default class ResultCard extends React.Component {
     }
 
     handleFavoritesUpdate = () => {
-        this.setState({
-            favorited: !this.state.favorited
-        })
-        console.log('favoirted: ', this.state.favorited)
-        this.props.updateFavorites(this.props.gif)
+        this.props.updateFavorites(this.props.gif, this.props.isFavorite)
     }
 
     render () {
