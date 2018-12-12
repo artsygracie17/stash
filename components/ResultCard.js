@@ -7,8 +7,6 @@ import { Row, Col } from 'react-styled-flexboxgrid'
 const ResultCardContainer = styled.div`
     width: 20rem;
     height: 20rem;
-    margin: 1rem;
-    padding: 1rem;
 `
 
 const ResultCardBody = styled.div`
@@ -46,17 +44,16 @@ export default class ResultCard extends React.Component {
     }
 
     handleFavoritesUpdate = () => {
-        this.props.updateFavorites(this.props.gif)
-        console.log('clicked')
-        console.log(this.props.gif)
         this.setState({
             favorited: !this.state.favorited
         })
+        console.log('favoirted: ', this.state.favorited)
+        this.props.updateFavorites(this.props.gif)
     }
 
     render () {
-        const { gif } = this.props
         const { handleFavoritesUpdate } = this
+        const { gif, isFavorite } = this.props
         const { favorited } = this.state
         const gifUrl = gif.images.fixed_width_downsampled.url
         return (
@@ -65,7 +62,7 @@ export default class ResultCard extends React.Component {
                 rel="stylesheet"/>
                 <ResultCardBody> 
                     <Favorite onClick={handleFavoritesUpdate}>
-                        { favorited 
+                        { isFavorite 
                             ? <i className='material-icons'>favorite</i>
                             : <i className='material-icons'>favorite_border</i>
                         }
@@ -79,10 +76,12 @@ export default class ResultCard extends React.Component {
 
 ResultCard.defaultProps = {
    gif: {},
-   updateFavorites: () => {}
+   updateFavorites: () => {},
+   isFavorite: false
 }
 
 ResultCard.propTypes = {
     gif: PropTypes.object,
-    updateFavorites: PropTypes.func
+    updateFavorites: PropTypes.func,
+    isFavorite: PropTypes.bool
 }

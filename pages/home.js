@@ -107,13 +107,13 @@ export default class Home extends Component {
                         </Col>
                     </Row>
                     <Row center='xs'>
-                        { console.log('resultssss: ', results)}
                         { results.map(result => {
                             return (
                                 <Col key={result.id}>
                                     <ResultCard 
                                         gif={result}
                                         updateFavorites={handleFavoritesUpdate}
+                                        isFavorite={favorites.includes(result)}
                                     />
                                 </Col>
                             )
@@ -129,6 +129,7 @@ export default class Home extends Component {
                                     <ResultCard 
                                         gif={fav}
                                         updateFavorites={handleFavoritesUpdate}
+                                        isFavorite={true}
                                     />
                                 </Col>
                             )

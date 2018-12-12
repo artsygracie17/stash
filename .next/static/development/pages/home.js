@@ -69,7 +69,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n    width: 20rem;\n    height: 20rem;\n    margin: 1rem;\n    padding: 1rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width: 20rem;\n    height: 20rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -103,14 +103,13 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ResultCard).call(this, props));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleFavoritesUpdate", function () {
-      _this.props.updateFavorites(_this.props.gif);
-
-      console.log('clicked');
-      console.log(_this.props.gif);
-
       _this.setState({
         favorited: !_this.state.favorited
       });
+
+      console.log('favoirted: ', _this.state.favorited);
+
+      _this.props.updateFavorites(_this.props.gif);
     });
 
     _this.state = {
@@ -122,14 +121,16 @@ function (_React$Component) {
   _createClass(ResultCard, [{
     key: "render",
     value: function render() {
-      var gif = this.props.gif;
       var handleFavoritesUpdate = this.handleFavoritesUpdate;
+      var _this$props = this.props,
+          gif = _this$props.gif,
+          isFavorite = _this$props.isFavorite;
       var favorited = this.state.favorited;
       var gifUrl = gif.images.fixed_width_downsampled.url;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 63
+          lineNumber: 60
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
@@ -137,41 +138,41 @@ function (_React$Component) {
         rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 64
+          lineNumber: 61
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 63
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Favorite, {
         onClick: handleFavoritesUpdate,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 64
         },
         __self: this
-      }, favorited ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
+      }, isFavorite ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 66
         },
         __self: this
       }, "favorite") : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
         className: "material-icons",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 67
         },
         __self: this
       }, "favorite_border")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultGif, {
         src: gifUrl,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 73
+          lineNumber: 70
         },
         __self: this
       })));
@@ -184,11 +185,13 @@ function (_React$Component) {
 
 ResultCard.defaultProps = {
   gif: {},
-  updateFavorites: function updateFavorites() {}
+  updateFavorites: function updateFavorites() {},
+  isFavorite: false
 };
 ResultCard.propTypes = {
   gif: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object,
-  updateFavorites: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func
+  updateFavorites: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func,
+  isFavorite: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.bool
 };
 
 /***/ }),
@@ -5173,20 +5176,21 @@ function (_Component) {
           lineNumber: 109
         },
         __self: this
-      }, console.log('resultssss: ', results), results.map(function (result) {
+      }, results.map(function (result) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
           key: result.id,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 113
+            lineNumber: 112
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ResultCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
           gif: result,
           updateFavorites: handleFavoritesUpdate,
+          isFavorite: favorites.includes(result),
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 114
+            lineNumber: 113
           },
           __self: this
         }));
@@ -5214,6 +5218,7 @@ function (_Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ResultCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
           gif: fav,
           updateFavorites: handleFavoritesUpdate,
+          isFavorite: true,
           __source: {
             fileName: _jsxFileName,
             lineNumber: 129
