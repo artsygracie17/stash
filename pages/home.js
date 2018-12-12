@@ -11,9 +11,27 @@ const Container = styled.div`
     margin: 0 auto;
 `
 
-const Title = styled.h1`
-    color: lightblue;
+const Header = styled.div`
+    color: gray;    
+    font-size: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
     text-align: center;
+`
+
+const Search = styled.a`
+    display: inline-block;
+    margin-right: 0.3rem;
+    color: ${props => props.isActive ? 'black' : 'gray'};
+
+    &:hover {
+        cursor: pointer;
+    }
+`
+
+const Favorites = styled(Search)`
+    margin-right: 0rem;  
+    margin-left: 0.8rem;
 `
 
 const Theme = styled(Grid)`
@@ -25,7 +43,7 @@ export default class Home extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            page: 'home',
+            home: true,
             searchTerm: '',
             results: [],
             favorites: [],
@@ -51,42 +69,74 @@ export default class Home extends Component {
             })
     }
 
-    componentDidMount() {
-        // let urlRequest = `http://api.giphy.com/v1/gifs/search?q=pandas&api_key=${apiKey}&limit=5`
-        // fetch(urlRequest)
-        //     .then(res => res.json())
-        //     .then(result =>
-        //         console.log(result)
-        //     )
+    handlePageToggle = () => {
+        this.setState({
+            home: !this.state.home
+        })
+    }
+
+    handleFavoritesUpdate = (gif) => {
+        this.setState({
+            favorites: [...this.state.favorites, gif]
+        })
+        console.log('favs: ', this.state.favorites)
     }
     
     render () {
-        const { searchTerm, results } = this.state
+        const { searchTerm, results, favorites, home } = this.state
+        const {
+            handleSearchTermChange,
+            handleSearchbarSubmit,
+            handlePageToggle,
+            handleFavoritesUpdate
+        } = this
         return (
             <Container>
-                <Title> my giphy search </Title>
-                <Theme>
+                <Header>
+                    <Search isActive={home} onClick={handlePageToggle}> search </Search> .
+                    <Favorites isActive={!home} onClick={handlePageToggle}> favorites </Favorites>
+                </Header>
+                { home 
+                ? <Theme>
                     <Row center='xs'>
                         <Col xs={6}>
                             <Searchbar 
                                 searchTerm={searchTerm} 
-                                onChange={this.handleSearchTermChange}
-                                onSubmit={this.handleSearchbarSubmit} />
+                                onChange={handleSearchTermChange}
+                                onSubmit={handleSearchbarSubmit} />
                         </Col>
                     </Row>
-                    <Row>
+                    <Row center='xs'>
                         { console.log('resultssss: ', results)}
                         { results.map(result => {
                             return (
                                 <Col key={result.id}>
-                                    <ResultCard
-                                        title={result.title}
+                                    <ResultCard 
+                                        gif={result}
+                                        updateFavorites={handleFavoritesUpdate}
                                     />
                                 </Col>
                             )
                         })}
                     </Row>
                 </Theme>
+                : <Theme>
+                    <p> favs page </p>
+                    {/* <Row center='xs'>
+                        { console.log('favorites: ', favorites)}
+                        { favorites.map(fav => {
+                            return (
+                                <Col key={fav.id}>
+                                    <ResultCard 
+                                        gif={fav}
+                                        updateFavorites={handleFavoritesUpdate}
+                                    />
+                                </Col>
+                            )
+                        })}
+                    </Row> */}
+                </Theme>
+                }
             </Container>
         )
     }

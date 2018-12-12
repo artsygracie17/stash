@@ -109,7 +109,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/components/ResultCard.js";
+/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-styled-flexboxgrid */ "react-styled-flexboxgrid");
+/* harmony import */ var react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_3__);
+var _this = undefined,
+    _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/components/ResultCard.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -129,8 +132,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n    opacity: 1;\n    text-align: right;\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n    color: gray;\n"]);
+  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem;\n    opacity: 1;\n\n    &:hover {\n        cursor: pointer;\n        opacity: 0.6;\n    }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -140,7 +153,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    border: 1px solid lightgray;\n    border-radius: 0.2rem;\n    width: 20rem;\n    height: 20rem;\n    padding: 0rem 1rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    border-radius: 0.2rem;\n    margin: 1rem;\n    padding: 0rem;\n    position: absolute;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -150,7 +163,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\nwidth: 20rem;\nheight: 20rem;\n    margin: 1rem;\n    padding: 1rem;\n"]);
+  var data = _taggedTemplateLiteral(["\n    width: 20rem;\n    height: 20rem;\n    margin: 1rem;\n    padding: 1rem;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -165,9 +178,18 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
+
 var ResultCardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject());
 var ResultCardBody = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject2());
-var ResultTitle = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.h4(_templateObject3());
+var ResultGif = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.img(_templateObject3());
+var Favorite = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div(_templateObject4());
+
+var handleFavoritesUpdate = function handleFavoritesUpdate() {
+  _this.updateFavorites(_this.props.gif);
+
+  console.log('clicked');
+  console.log(_this.props.gif);
+};
 
 var ResultCard =
 /*#__PURE__*/
@@ -183,26 +205,51 @@ function (_React$Component) {
   _createClass(ResultCard, [{
     key: "render",
     value: function render() {
-      var title = this.props.title;
+      var gif = this.props.gif;
+      var handleFavoritesUpdate = this.handleFavoritesUpdate;
+      var gifUrl = gif.images.fixed_width_downsampled.url;
       return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardContainer, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 52
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardBody, {
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("link", {
+        href: "https://fonts.googleapis.com/icon?family=Material+Icons",
+        rel: "stylesheet",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 53
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultTitle, {
+      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultCardBody, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 31
+          lineNumber: 55
         },
         __self: this
-      }, title)));
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Favorite, {
+        onClick: handleFavoritesUpdate,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 56
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("i", {
+        className: "material-icons",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 57
+        },
+        __self: this
+      }, "favorite_border")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(ResultGif, {
+        src: gifUrl,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59
+        },
+        __self: this
+      })));
     }
   }]);
 
@@ -211,10 +258,12 @@ function (_React$Component) {
 
 
 ResultCard.defaultProps = {
-  title: ''
+  gif: {},
+  updateFavorites: function updateFavorites() {}
 };
 ResultCard.propTypes = {
-  title: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.string
+  gif: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.object,
+  updateFavorites: prop_types__WEBPACK_IMPORTED_MODULE_0___default.a.func
 };
 
 /***/ }),
@@ -402,6 +451,14 @@ var _jsxFileName = "/Users/gracieliu-fang/Desktop/personal/stash/pages/home.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -420,8 +477,28 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _templateObject3() {
+function _templateObject5() {
   var data = _taggedTemplateLiteral(["\n    font-family: 'NeueHaasUnicaPro-Regular';\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteral(["\n    margin-right: 0rem;  \n    margin-left: 0.8rem;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3() {
+  var data = _taggedTemplateLiteral(["\n    display: inline-block;\n    margin-right: 0.3rem;\n    color: ", ";\n\n    &:hover {\n        cursor: pointer;\n    }\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -431,7 +508,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n    color: lightblue;\n    text-align: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n    color: gray;    \n    font-size: 2rem;\n    margin-top: 4rem;\n    margin-bottom: 1rem;\n    text-align: center;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -461,8 +538,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 var Container = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div(_templateObject());
-var Title = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.h1(_templateObject2());
-var Theme = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"])(_templateObject3());
+var Header = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div(_templateObject2());
+var Search = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.a(_templateObject3(), function (props) {
+  return props.isActive ? 'black' : 'gray';
+});
+var Favorites = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(Search)(_templateObject4());
+var Theme = styled_components__WEBPACK_IMPORTED_MODULE_2___default()(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Grid"])(_templateObject5());
 var apiKey = 'G3kX7Y9C74tjpHZadKuIGqjwLrCmfZnU';
 
 var Home =
@@ -497,8 +578,22 @@ function (_Component) {
       });
     });
 
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handlePageToggle", function () {
+      _this.setState({
+        home: !_this.state.home
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "handleFavoritesUpdate", function (gif) {
+      _this.setState({
+        favorites: _toConsumableArray(_this.state.favorites).concat([gif])
+      });
+
+      console.log('favs: ', _this.state.favorites);
+    });
+
     _this.state = {
-      page: 'home',
+      home: true,
       searchTerm: '',
       results: [],
       favorites: []
@@ -507,65 +602,79 @@ function (_Component) {
   }
 
   _createClass(Home, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {// let urlRequest = `http://api.giphy.com/v1/gifs/search?q=pandas&api_key=${apiKey}&limit=5`
-      // fetch(urlRequest)
-      //     .then(res => res.json())
-      //     .then(result =>
-      //         console.log(result)
-      //     )
-    }
-  }, {
     key: "render",
     value: function render() {
       var _this$state = this.state,
           searchTerm = _this$state.searchTerm,
-          results = _this$state.results;
+          results = _this$state.results,
+          favorites = _this$state.favorites,
+          home = _this$state.home;
+      var handleSearchTermChange = this.handleSearchTermChange,
+          handleSearchbarSubmit = this.handleSearchbarSubmit,
+          handlePageToggle = this.handlePageToggle,
+          handleFavoritesUpdate = this.handleFavoritesUpdate;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Container, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 66
+          lineNumber: 94
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Title, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Header, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 67
+          lineNumber: 95
         },
         __self: this
-      }, " my giphy search "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Search, {
+        isActive: home,
+        onClick: handlePageToggle,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 68
+          lineNumber: 96
+        },
+        __self: this
+      }, " search "), " .", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Favorites, {
+        isActive: !home,
+        onClick: handlePageToggle,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 97
+        },
+        __self: this
+      }, " favorites ")), home ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 100
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
         center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69
+          lineNumber: 101
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Col"], {
         xs: 6,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70
+          lineNumber: 102
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Searchbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
         searchTerm: searchTerm,
-        onChange: this.handleSearchTermChange,
-        onSubmit: this.handleSearchbarSubmit,
+        onChange: handleSearchTermChange,
+        onSubmit: handleSearchbarSubmit,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71
+          lineNumber: 103
         },
         __self: this
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_styled_flexboxgrid__WEBPACK_IMPORTED_MODULE_1__["Row"], {
+        center: "xs",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77
+          lineNumber: 109
         },
         __self: this
       }, console.log('resultssss: ', results), results.map(function (result) {
@@ -573,18 +682,31 @@ function (_Component) {
           key: result.id,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 81
+            lineNumber: 113
           },
           __self: this
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ResultCard__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          title: result.title,
+          gif: result,
+          updateFavorites: handleFavoritesUpdate,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 82
+            lineNumber: 114
           },
           __self: this
         }));
-      }))));
+      }))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Theme, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 123
+        },
+        __self: this
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 124
+        },
+        __self: this
+      }, " favs page ")));
     }
   }]);
 
