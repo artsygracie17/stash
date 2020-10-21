@@ -12,7 +12,7 @@
     "react-dom": "^16.6.3",
     "react-styled-flexboxgrid": "^2.6.0",
     "styled-components": "^4.1.1",
-    "webpack-bundle-analyzer": "^3.0.3"
+    "webpack-bundle-analyzer": "^3.3.2"
   },
   "scripts": {
     "dev": "next",
